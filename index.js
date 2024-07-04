@@ -44,6 +44,7 @@ for(let i = 0; i < buttonArray.length;i++){
         // let audio = new Audio("./sounds/tom-1.mp3");
         // audio.play();
         let buttonInnerText=this.innerHTML;
+        buttonAnimation(buttonInnerText);
         soundDetector(buttonInnerText);
         
     });
@@ -53,8 +54,18 @@ for(let i = 0; i < buttonArray.length;i++){
 document.addEventListener("keydown",function(event){
     // alert("key down");
     // console.log(event.key);
+    buttonAnimation(event.key);
     soundDetector(event.key);
 
 });
+
+function buttonAnimation(key){
+    let activeKey=document.querySelector("."+key);
+    // console.log(activeKey);
+    activeKey.classList.toggle("pressed");
+    
+    setTimeout(()=>activeKey.classList.toggle("pressed"),400);
+
+}
 
 
